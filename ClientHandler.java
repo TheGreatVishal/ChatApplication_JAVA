@@ -20,6 +20,7 @@ public class ClientHandler implements Runnable {
     private BufferedWriter bufferedWriter;
     private String clientUsername;
     private String uniqueName;
+    private String mode; // will give info about how client is added in handler {by signup or login}
 
     public static String url;
     public static String username;
@@ -121,8 +122,10 @@ public class ClientHandler implements Runnable {
                             System.out.println("\n" + i + " : " + ch.toString());
                             i++;
                         }
-                        u.signUp(u_name, pass);
+                        u.signUp(u_name, pass); // creating accout
                         this.clientUsername = u_name;
+                        this.mode = "signup";
+                        removeExtraClients();
                         System.out.println("\nAfter signup : ");
                         i = 1;
                         for (ClientHandler ch : ClientHandler.clientHandlers) {
@@ -136,6 +139,7 @@ public class ClientHandler implements Runnable {
 
                         if (status == 1) {
                             // login done
+                            this.mode = "login";
                             System.out.println("\nLogin done");
                             this.clientUsername = u_name;
                             u.setLoginStatus(1, u_name);
@@ -170,14 +174,12 @@ public class ClientHandler implements Runnable {
 
                 }
             } catch (Exception e) {
-                // closeEverything(socket, bufferedReader, bufferedWriter);
                 break;
             }
         }
     }
 
     public void createUniqueName(String firstName, String secondName) {
-        System.out.println("\nFrom unique name setter : ");
         String uniqueName;
 
 
@@ -254,6 +256,21 @@ public class ClientHandler implements Runnable {
             } catch (Exception e) {
 
                 // closeEverything(socket, bufferedReader, bufferedWriter);
+            }
+        }
+    }
+
+
+    public static void removeExtraClients() throws Exception {
+        Iterator<ClientHandler> iterator = ClientHandler.clientHandlers.iterator();
+        while (iterator.hasNext()) {
+            ClientHandler ch = iterator.next();
+
+            if (ch.mode.equals("signup") || ch.clientUsername == null) {
+                iterator.remove(); // Remove the client using iterator
+                System.out.println("Removed ");
+                System.out.println("SERVER : " + ch.clientUsername + " has left the clientHandler !");
+            } else {
             }
         }
     }

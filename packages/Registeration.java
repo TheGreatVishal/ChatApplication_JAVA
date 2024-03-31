@@ -85,7 +85,6 @@ public class Registeration {
     public void signUp(String u_name, String pass) throws Exception {
 
         String hashedPassword = generateHash(pass);
-        // System.out.println("Password stored in database : " + hashedPassword);
         try {
             String sqlQuery = "INSERT INTO users (username, password) VALUES ('" + u_name
                     + "', ' " + hashedPassword
@@ -120,7 +119,6 @@ public class Registeration {
         String hashedPassword = generateHash(pass);
 
         if (isUserNameTaken(u_name)) {
-            System.out.println("\nInside login : 3");
             String pass_of_u_name = fetchHashedPasswordOfUser(u_name);
             pass_of_u_name = pass_of_u_name.trim();
 

@@ -84,13 +84,10 @@ class ReceiveOnGui implements Runnable {
 
     public void run() {
         while (true) {
-            System.out.println("\nReceiving Thread started");
             try {
                 BufferedReader br = new BufferedReader(new InputStreamReader(s.getInputStream()));
                 String str = null;
-                // System.out.println((br.readLine()).toString());
                 while ((str = br.readLine()) != null) {
-                    System.out.print(str + "\n"); // Print received message
                     chatArea.append(str + "\n");
                 }
             } catch (Exception e) {
@@ -100,7 +97,7 @@ class ReceiveOnGui implements Runnable {
                 try {
                     // s.close(); // Close socket
                 } catch (Exception e) {
-                    System.err.println("Error while closing socket: " + e.getMessage());
+                    // System.err.println("Error while closing socket: " + e.getMessage());
                 }
             }
         }
@@ -109,21 +106,33 @@ class ReceiveOnGui implements Runnable {
 
 public class Client {
     public static void dottedLine() {
-        for (int i = 1; i <= 30; i++) {
+        for (int i = 1; i <= 23; i++) {
             System.out.print("--");
         }
     }
 
     public static void main(String[] args) throws Exception {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+        Scanner sc = new Scanner(System.in);
+        dottedLine();
+        System.out.println("\nWelcome to Chat Application");
+        dottedLine();
 
-        int guiChoice = 1;
+        System.out.println("\nWhich feature do you want : ");
+        System.out.println("\n1. GUI\n2. Terminal");
+        System.out.print("\nChoice : ");
+        int guiChoice = sc.nextInt();
+
         if (guiChoice == 1) {
-            INDEX obj = new INDEX();
+            IP obj = new IP();
         } else {
-            Scanner sc = new Scanner(System.in);
             // String ip = "localhost"; // IP address of the server (in this case,
             // localhost)
             // String ip = "192.168.108.46";
+
+            System.out.print("\033[H\033[2J");
+            System.out.flush();
 
             int port = 8000; // Port number the server is listening on
 
@@ -132,12 +141,9 @@ public class Client {
             String ip = sc.next();
 
             // creating socket for client
-            Socket s = new Socket(ip, port);
-            PrintWriter out;
-            BufferedReader br;
-
-            out = new PrintWriter(s.getOutputStream(), true);
-            br = new BufferedReader(new InputStreamReader(s.getInputStream()));
+            // Socket s = new Socket(ip, port);
+            // PrintWriter out;
+            // BufferedReader br;
 
             while (true) {
                 System.out.print("\033[H\033[2J");
@@ -155,6 +161,9 @@ public class Client {
                 switch (choice) {
                     case 1:
                         // sign-up section
+                        Socket s = new Socket(ip, port);
+                        PrintWriter out;
+                        BufferedReader br;
 
                         String u_name;
                         String pass;
@@ -229,6 +238,10 @@ public class Client {
 
                     case 2:
 
+                        Socket S = new Socket(ip, port);
+                        PrintWriter OUT;
+                        BufferedReader BR;
+
                         String login_u_name;
                         String login_pass;
                         int loginStatus = 0;
@@ -247,12 +260,12 @@ public class Client {
                             System.out.print("Enter Password : ");
                             login_pass = sc.next();
 
-                            out = new PrintWriter(s.getOutputStream(), true); // autoFlush : true
-                            out.println("login:" + login_u_name + ":" + login_pass); // sending to server
+                            OUT = new PrintWriter(S.getOutputStream(), true); // autoFlush : true
+                            OUT.println("login:" + login_u_name + ":" + login_pass); // sending to server
 
-                            br = new BufferedReader(new InputStreamReader(s.getInputStream()));
+                            BR = new BufferedReader(new InputStreamReader(S.getInputStream()));
 
-                            int isLoginComplete = Integer.parseInt(br.readLine());
+                            int isLoginComplete = Integer.parseInt(BR.readLine());
 
                             if (isLoginComplete == 1) {
 
@@ -285,7 +298,7 @@ public class Client {
                                 System.out.print("\033[H\033[2J");
                                 System.out.flush();
                                 try {
-                                    final PrintWriter out2 = new PrintWriter(s.getOutputStream(), true); // autoFlush :
+                                    final PrintWriter out2 = new PrintWriter(S.getOutputStream(), true); // autoFlush :
                                                                                                          // true
                                     out2.println("logout:" + userLogout); // sending to server
                                     // logout in abnormal termination
@@ -311,12 +324,12 @@ public class Client {
                                     continue;
                                 }
 
-                                out = new PrintWriter(s.getOutputStream(), true); // autoFlush : true
-                                out.println("isUserNameTaken:" + chatWithUsername); // sending to server
+                                OUT = new PrintWriter(S.getOutputStream(), true); // autoFlush : true
+                                OUT.println("isUserNameTaken:" + chatWithUsername); // sending to server
 
-                                br = new BufferedReader(new InputStreamReader(s.getInputStream()));
+                                BR = new BufferedReader(new InputStreamReader(S.getInputStream()));
 
-                                int doesUserExist = Integer.parseInt(br.readLine());
+                                int doesUserExist = Integer.parseInt(BR.readLine());
 
                                 if (doesUserExist == 0) {
                                     System.out.println("User Does not Exist !!");
@@ -327,12 +340,12 @@ public class Client {
 
                                 } else {
 
-                                    out = new PrintWriter(s.getOutputStream(), true); // autoFlush : true
-                                    out.println("isUserOnline:" + chatWithUsername); // sending to server
+                                    OUT = new PrintWriter(S.getOutputStream(), true); // autoFlush : true
+                                    OUT.println("isUserOnline:" + chatWithUsername); // sending to server
 
-                                    br = new BufferedReader(new InputStreamReader(s.getInputStream()));
+                                    BR = new BufferedReader(new InputStreamReader(S.getInputStream()));
 
-                                    int isUserOnline = Integer.parseInt(br.readLine());
+                                    int isUserOnline = Integer.parseInt(BR.readLine());
 
                                     if (isUserOnline == 1) {
                                         break;
@@ -351,16 +364,16 @@ public class Client {
                             dottedLine();
                             System.out.println("\n" + chatWithUsername);
 
-                            out = new PrintWriter(s.getOutputStream(), true); // autoFlush : true
-                            out.println("createUniqueName:" + login_u_name + ":" + chatWithUsername); // sending to
+                            OUT = new PrintWriter(S.getOutputStream(), true); // autoFlush : true
+                            OUT.println("createUniqueName:" + login_u_name + ":" + chatWithUsername); // sending to
                                                                                                       // server
 
                             dottedLine();
                             System.out.println();
 
-                            Send sendThread = new Send(sc, s, login_u_name, chatWithUsername);
+                            Send sendThread = new Send(sc, S, login_u_name, chatWithUsername);
                             Thread sendThread1 = new Thread(sendThread);
-                            Receive receiveThread = new Receive(s);
+                            Receive receiveThread = new Receive(S);
                             Thread receiveThread1 = new Thread(receiveThread);
 
                             sendThread1.start(); // to handle sending
@@ -402,10 +415,12 @@ class SignUpPage extends JFrame {
     PrintWriter out;
     BufferedReader br;
     Socket s;
+    String ip = null;
 
-    public SignUpPage(Socket s) throws Exception {
+    public SignUpPage(Socket s, String ip) throws Exception {
 
         this.s = s;
+        this.ip = ip;
 
         header = new JLabel("Sign Up");
         username = new JTextField(40);
@@ -484,7 +499,7 @@ class SignUpPage extends JFrame {
                     }));
 
                     try {
-                        new INDEX();
+                        new INDEX(ip);
                     } catch (Exception e) {
                     }
                     this.dispose();
@@ -518,6 +533,7 @@ class LoginPage extends JFrame {
     BufferedReader br;
     Socket s;
     String login_u_name;
+    
     String login_pass;
     int loginStatus = 0;
 
@@ -688,7 +704,6 @@ class ConnectTo extends JFrame {
                         out = new PrintWriter(s.getOutputStream(), true); // autoFlush : true
                         out.println("createUniqueName:" + selfUsername + ":" + targetusername);
                     } catch (Exception e) {
-                        // TODO: handle exception
                     }
 
                     try {
@@ -796,31 +811,63 @@ class ChattingPage extends JFrame {
 
 class INDEX extends JFrame {
 
-    JLabel ipAddress;
-    JTextField inputIP;
-
-    JButton enterBtn, signUpBtn, loginBtn;
-    String ip = null;
-    int port;
+    JButton signUpBtn, loginBtn;
     Socket s;
-    PrintWriter out;
-    BufferedReader br;
+    String ip = null;
 
-    public INDEX() throws Exception {
+    public INDEX(String ip) throws Exception {
 
-        this.port = 8000;
-        ipAddress = new JLabel("Enter IP : ");
-        inputIP = new JTextField(20);
-
-        enterBtn = new JButton("Enter");
+        this.ip = ip;
         signUpBtn = new JButton("Create Account");
-        loginBtn = new JButton("Login");     
-        
+        loginBtn = new JButton("Login");
+
         signUpBtn.setFocusPainted(false);
         loginBtn.setFocusPainted(false);
-        signUpBtn.setVisible(false);
-        loginBtn.setVisible(false);
 
+        add(signUpBtn);
+        add(loginBtn);
+
+        // for Sign-Up button
+        signUpBtn.addActionListener(ae -> {
+            try {
+                s = new Socket(ip, 8000);
+                new SignUpPage(this.s, ip);
+                this.dispose();
+            } catch (Exception e) {
+            }
+        });
+        
+        // for Login button
+        loginBtn.addActionListener(ae -> {
+            try {
+                s = new Socket(ip, 8000);
+                new LoginPage(this.s);
+                this.dispose();
+            } catch (Exception e) {
+            }
+        });
+
+        this.setLayout(new GridLayout(10, 1));
+        this.setTitle("Chat Application");
+        this.setVisible(true);
+        this.setSize(400, 600);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+}
+
+class IP extends JFrame {
+    JLabel ipAddress;
+    JTextField inputIP;
+    JButton enterBtn;
+
+    String ip = null;
+    Socket s;
+
+    public IP() throws Exception {
+
+        ipAddress = new JLabel("Enter IP : ");
+        inputIP = new JTextField(20);
+        enterBtn = new JButton("Enter");
         add(ipAddress);
         add(inputIP);
         add(enterBtn);
@@ -828,49 +875,14 @@ class INDEX extends JFrame {
         enterBtn.addActionListener(ae -> {
             this.ip = inputIP.getText();
             try {
-                this.s = new Socket(this.ip, this.port);
-                signUpBtn.setVisible(true);
-                loginBtn.setVisible(true);
+                new INDEX(this.ip);
+                dispose();
+
             } catch (Exception e) {
             }
         });
 
-        // for Sign-Up button
-        signUpBtn.addActionListener(ae -> {
-            try {
-                new SignUpPage(this.s);
-                this.dispose();
-            } catch (Exception e) {
-            }
-            this.dispose();
-        });
-
-        // for Login button
-        loginBtn.addActionListener(ae -> {
-            try {
-                new LoginPage(this.s);
-                this.dispose();
-            } catch (Exception e) {
-            }
-        });
-
-
-        JPanel ipPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        ipPanel.add(ipAddress);
-        ipPanel.add(inputIP);
-        ipPanel.add(enterBtn);
-
-        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        buttonPanel.add(signUpBtn);
-        buttonPanel.add(loginBtn);
-
-        JPanel mainPanel = new JPanel();
-        mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
-        mainPanel.add(ipPanel);
-        mainPanel.add(buttonPanel);
-
-        // this.setLayout(new GridLayout(10, 1));
-        this.add(mainPanel);
+        this.setLayout(new GridLayout(10, 1));
         this.setTitle("Chat Application");
         this.setVisible(true);
         this.setSize(400, 600);
