@@ -177,7 +177,9 @@ public class ClientHandler implements Runnable {
     }
 
     public void createUniqueName(String firstName, String secondName) {
+        System.out.println("\nFrom unique name setter : ");
         String uniqueName;
+
 
         // Compare the names to determine the order
         if (firstName.compareTo(secondName) < 0) {
@@ -185,15 +187,15 @@ public class ClientHandler implements Runnable {
         } else {
             uniqueName = secondName + "_" + firstName;
         }
-
+        
         for (ClientHandler ch : ClientHandler.clientHandlers) {
-
+            
             if (ch.clientUsername.equals(secondName) && ch.uniqueName == null) {
                 ch.uniqueName = uniqueName;
                 break;
             }
         }
-
+        
         System.out.println("\nFrom unique name setter : ");
         int i = 1;
         for (ClientHandler ch : ClientHandler.clientHandlers) {
@@ -227,23 +229,24 @@ public class ClientHandler implements Runnable {
     }
 
     public void sendMessasgeTo(String messageToSend, String targetClient) {
-
-        String uniqueName;
-
+        String uniqueName = null;
+        
         // Compare the names to determine the order
         if ((this.clientUsername).compareTo(targetClient) < 0) {
             uniqueName = this.clientUsername + "_" + targetClient;
         } else {
-            uniqueName = this.clientUsername + "_" + targetClient;
+            uniqueName = targetClient + "_" + this.clientUsername;
         }
+        System.out.println("\n\nInside send to message...: " + uniqueName);
 
         if (targetClient.compareTo("") == 0) {
             return;
         }
         for (ClientHandler clientHandler : clientHandlers) {
             try {
-                if (clientHandler.clientUsername.equals(targetClient) && clientHandler.uniqueName.equals(this.uniqueName)) {
+                if (clientHandler.clientUsername.equals(targetClient) && clientHandler.uniqueName.equals(uniqueName)) {
                     System.out.println("\nMessage send to : " + targetClient);
+                    System.out.println("\nMsg is : " + messageToSend);
                     clientHandler.bufferedWriter.write(this.clientUsername + " : " + messageToSend);
                     clientHandler.bufferedWriter.newLine();
                     clientHandler.bufferedWriter.flush();
