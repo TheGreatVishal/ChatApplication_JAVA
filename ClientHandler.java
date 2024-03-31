@@ -182,7 +182,6 @@ public class ClientHandler implements Runnable {
     public void createUniqueName(String firstName, String secondName) {
         String uniqueName;
 
-
         // Compare the names to determine the order
         if (firstName.compareTo(secondName) < 0) {
             uniqueName = firstName + "_" + secondName;
@@ -244,6 +243,7 @@ public class ClientHandler implements Runnable {
         if (targetClient.compareTo("") == 0) {
             return;
         }
+
         for (ClientHandler clientHandler : clientHandlers) {
             try {
                 if (clientHandler.clientUsername.equals(targetClient) && clientHandler.uniqueName.equals(uniqueName)) {

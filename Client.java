@@ -533,7 +533,7 @@ class LoginPage extends JFrame {
     BufferedReader br;
     Socket s;
     String login_u_name;
-    
+
     String login_pass;
     int loginStatus = 0;
 
@@ -836,7 +836,7 @@ class INDEX extends JFrame {
             } catch (Exception e) {
             }
         });
-        
+
         // for Login button
         loginBtn.addActionListener(ae -> {
             try {
@@ -868,6 +868,7 @@ class IP extends JFrame {
         ipAddress = new JLabel("Enter IP : ");
         inputIP = new JTextField(20);
         enterBtn = new JButton("Enter");
+      
         add(ipAddress);
         add(inputIP);
         add(enterBtn);
