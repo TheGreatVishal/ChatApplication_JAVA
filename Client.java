@@ -406,6 +406,90 @@ public class Client {
 
 }
 
+// GUI SECTION
+
+class IP extends JFrame {
+    JLabel ipAddress;
+    JTextField inputIP;
+    JButton enterBtn;
+
+    String ip = null;
+    Socket s;
+
+    public IP() throws Exception {
+
+        ipAddress = new JLabel("Enter IP : ");
+        inputIP = new JTextField(20);
+        enterBtn = new JButton("Enter");
+
+        add(ipAddress);
+        add(inputIP);
+        add(enterBtn);
+
+        enterBtn.addActionListener(ae -> {
+            this.ip = inputIP.getText();
+            try {
+                new INDEX(this.ip);
+                dispose();
+
+            } catch (Exception e) {
+            }
+        });
+
+        this.setLayout(new GridLayout(10, 1));
+        this.setTitle("Chat Application");
+        this.setVisible(true);
+        this.setSize(400, 600);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+}
+
+class INDEX extends JFrame {
+
+    JButton signUpBtn, loginBtn;
+    Socket s;
+    String ip = null;
+
+    public INDEX(String ip) throws Exception {
+
+        this.ip = ip;
+        signUpBtn = new JButton("Create Account");
+        loginBtn = new JButton("Login");
+
+        signUpBtn.setFocusPainted(false);
+        loginBtn.setFocusPainted(false);
+
+        add(signUpBtn);
+        add(loginBtn);
+
+        // for Sign-Up button
+        signUpBtn.addActionListener(ae -> {
+            try {
+                s = new Socket(ip, 8000);
+                new SignUpPage(this.s, ip);
+                this.dispose();
+            } catch (Exception e) {
+            }
+        });
+
+        // for Login button
+        loginBtn.addActionListener(ae -> {
+            try {
+                s = new Socket(ip, 8000);
+                new LoginPage(this.s);
+                this.dispose();
+            } catch (Exception e) {
+            }
+        });
+
+        this.setLayout(new GridLayout(10, 1));
+        this.setTitle("Chat Application");
+        this.setVisible(true);
+        this.setSize(400, 600);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+}
+
 class SignUpPage extends JFrame {
 
     JTextField username, pass, cPass;
@@ -607,7 +691,7 @@ class LoginPage extends JFrame {
                     }));
 
                     try {
-                        new ConnectTo(this.s, login_u_name);
+                        new FirstPage(this.s, login_u_name);
                     } catch (Exception e) {
                     }
                     this.dispose();
@@ -625,7 +709,7 @@ class LoginPage extends JFrame {
     }
 }
 
-class ConnectTo extends JFrame {
+class FirstPage extends JFrame {
 
     Socket s;
     String selfUsername; // person who is logged in
@@ -640,17 +724,15 @@ class ConnectTo extends JFrame {
     PrintWriter out;
     BufferedReader br;
 
-    ConnectTo(Socket s, String senderName) throws Exception {
+    FirstPage(Socket s, String senderName) throws Exception {
         this.s = s;
         this.selfUsername = senderName;
 
-        // header = new JLabel("Chat Applicaiton");
         usernameLabel = new JLabel("Chat with (Username) : ");
         notification = new JLabel("");
         targetUsername = new JTextField(40);
         chatBtn = new JButton("Start Chat");
 
-        // this.add(header);
         this.add(usernameLabel);
         this.add(targetUsername);
         this.add(chatBtn);
@@ -697,7 +779,7 @@ class ConnectTo extends JFrame {
 
                 if (isUserOnline == 1) {
                     // redirect to user for chatting
-                    System.out.println("Starting chat with : " + targetusername);
+                    // System.out.println("Starting chat with : " + targetusername);
                     notification.setText("Starting Chat with " + targetusername);
 
                     try {
@@ -771,7 +853,6 @@ class ChattingPage extends JFrame {
         inputPanel.add(sendButton);
 
         this.setLayout(new BorderLayout());
-        // this.add(header, BorderLayout.NORTH);
         this.add(chattingWith, BorderLayout.NORTH);
         this.add(chatScrollPane, BorderLayout.CENTER);
         this.add(inputPanel, BorderLayout.SOUTH);
@@ -792,7 +873,6 @@ class ChattingPage extends JFrame {
             // Send the message to the server
             try {
                 PrintWriter out = new PrintWriter(s.getOutputStream(), true);
-                // System.out.println("\nSent to server : " + str);
                 out.println("sendTo:" + targetUsername + ":" + message); // Writing data to the server
             } catch (Exception e) {
                 System.out.println("(GUI) Error generated while sending msg from client to server : " + e);
@@ -806,87 +886,5 @@ class ChattingPage extends JFrame {
         Thread receiveThread1 = new Thread(receiveThread);
         receiveThread1.start();
 
-    }
-}
-
-class INDEX extends JFrame {
-
-    JButton signUpBtn, loginBtn;
-    Socket s;
-    String ip = null;
-
-    public INDEX(String ip) throws Exception {
-
-        this.ip = ip;
-        signUpBtn = new JButton("Create Account");
-        loginBtn = new JButton("Login");
-
-        signUpBtn.setFocusPainted(false);
-        loginBtn.setFocusPainted(false);
-
-        add(signUpBtn);
-        add(loginBtn);
-
-        // for Sign-Up button
-        signUpBtn.addActionListener(ae -> {
-            try {
-                s = new Socket(ip, 8000);
-                new SignUpPage(this.s, ip);
-                this.dispose();
-            } catch (Exception e) {
-            }
-        });
-
-        // for Login button
-        loginBtn.addActionListener(ae -> {
-            try {
-                s = new Socket(ip, 8000);
-                new LoginPage(this.s);
-                this.dispose();
-            } catch (Exception e) {
-            }
-        });
-
-        this.setLayout(new GridLayout(10, 1));
-        this.setTitle("Chat Application");
-        this.setVisible(true);
-        this.setSize(400, 600);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    }
-}
-
-class IP extends JFrame {
-    JLabel ipAddress;
-    JTextField inputIP;
-    JButton enterBtn;
-
-    String ip = null;
-    Socket s;
-
-    public IP() throws Exception {
-
-        ipAddress = new JLabel("Enter IP : ");
-        inputIP = new JTextField(20);
-        enterBtn = new JButton("Enter");
-      
-        add(ipAddress);
-        add(inputIP);
-        add(enterBtn);
-
-        enterBtn.addActionListener(ae -> {
-            this.ip = inputIP.getText();
-            try {
-                new INDEX(this.ip);
-                dispose();
-
-            } catch (Exception e) {
-            }
-        });
-
-        this.setLayout(new GridLayout(10, 1));
-        this.setTitle("Chat Application");
-        this.setVisible(true);
-        this.setSize(400, 600);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }

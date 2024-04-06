@@ -15,17 +15,17 @@ import java.util.ArrayList;
 public class ClientHandler implements Runnable {
 
     public static ArrayList<ClientHandler> clientHandlers = new ArrayList<ClientHandler>();
+    public static String url;
+    public static String username;
+    public static String password;
+    public static Connection con;
+    
     private Socket socket;
     private BufferedReader bufferedReader;
     private BufferedWriter bufferedWriter;
     private String clientUsername;
     private String uniqueName;
     private String mode; // will give info about how client is added in handler {by signup or login}
-
-    public static String url;
-    public static String username;
-    public static String password;
-    public static Connection con;
 
     public ClientHandler(Socket socket) throws Exception {
         url = "jdbc:mysql://localhost:3306/chatapplication";
@@ -49,6 +49,7 @@ public class ClientHandler implements Runnable {
                 "socket=" + socket +
                 ", clientUsername='" + clientUsername + '\'' +
                 ", uniqueName='" + uniqueName + '\'' +
+                ", mode= '" + mode + '\'' +
                 '}';
     }
 
@@ -154,7 +155,6 @@ public class ClientHandler implements Runnable {
                             out.println("1");
                         } else {
                             // login failed
-
                             PrintWriter out = new PrintWriter(this.socket.getOutputStream(), true); // autoFlush : true
                             out.println("-1");
                         }

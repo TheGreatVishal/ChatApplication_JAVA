@@ -10,7 +10,6 @@ public class Server {
     }
 
     public void startServer() throws Exception {
-
         try {
             while (!serverSocket.isClosed()) {
                 Socket s = serverSocket.accept();
