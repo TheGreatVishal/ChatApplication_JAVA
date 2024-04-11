@@ -134,9 +134,6 @@ public class Client {
         if (guiChoice == 1) {
             IP obj = new IP();
         } else {
-            // String ip = "localhost"; // IP address of the server (in this case,
-            // localhost)
-            // String ip = "192.168.108.46";
 
             System.out.print("\033[H\033[2J");
             System.out.flush();
@@ -146,11 +143,6 @@ public class Client {
             dottedLine();
             System.out.print("\nEnter IP : ");
             String ip = sc.next();
-
-            // creating socket for client
-            // Socket s = new Socket(ip, port);
-            // PrintWriter out;
-            // BufferedReader br;
 
             while (true) {
                 System.out.print("\033[H\033[2J");
@@ -407,10 +399,8 @@ public class Client {
                 }
 
             }
-            // sc.close();
         }
     }
-
 }
 
 // GUI SECTION
@@ -598,7 +588,8 @@ class SignUpPage extends JFrame {
                         System.out.print("\033[H\033[2J");
                         System.out.flush();
                         try {
-                            final PrintWriter out2 = new PrintWriter(s.getOutputStream(), true); // autoFlush : true
+                            final PrintWriter out2 = new PrintWriter(s.getOutputStream(), true);
+                            // autoFlush : true
                             out2.println("removeClient:" + removeFromClientHandler); // sending to server
 
                             System.out.println("\nRemoved from clientHandler Successfully.");
@@ -609,9 +600,9 @@ class SignUpPage extends JFrame {
 
                     try {
                         new INDEX(ip);
+                        this.dispose();
                     } catch (Exception e) {
                     }
-                    this.dispose();
 
                 } else {
 
@@ -827,7 +818,7 @@ class FirstPage extends JFrame {
         Socket dataSocket = new Socket(this.ip, 8000);
 
         out = new PrintWriter(dataSocket.getOutputStream(), true); // autoFlush: true
-        out.println("fetchUsers:"+this.loggedInPerson); // sending to server
+        out.println("fetchUsers:" + this.loggedInPerson); // sending to server
 
         System.out.println("\nReceived Available users successfully....");
         String allUsers = null;
@@ -878,8 +869,9 @@ class FirstPage extends JFrame {
                                 Socket clienSocket = new Socket(ip, 8000);
 
                                 out = new PrintWriter(clienSocket.getOutputStream(), true);
-                             
-                                out.println("addClient:" + this.loggedInPerson + ":" + userNames[effectiveIndex].getText());
+
+                                out.println(
+                                        "addClient:" + this.loggedInPerson + ":" + userNames[effectiveIndex].getText());
 
                                 System.out.println("\nAdded in clientHandler successfully...." + "(" +
                                         loggedInPerson + ")");
@@ -964,7 +956,7 @@ class ChattingPage extends JFrame {
 
         this.setTitle("Chat Application");
         this.setSize(400, 600);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        // this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setVisible(true);
     }
@@ -989,7 +981,6 @@ class ChattingPage extends JFrame {
             } catch (Exception e) {
                 System.out.println("(GUI) Error generated while sending msg from client to server : " + e);
             }
-
         }
     }
 
