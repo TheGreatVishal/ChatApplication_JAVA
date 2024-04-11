@@ -1485,3 +1485,842 @@ String received : logout:vishal
 Colon Found : 1
 Part 1 : logout
 Part 2 : vishalInside removeClientSERVER : vishal has left the clientHandler !SERVER : vishal has left the clientHandler !
+String received at server with new socket connection : 
+A new client is connected.
+New Client joined ClientHandler..Socket[addr=/127.0.0.1,port=54562,localport=8000]
+After adding client from constructor for client handler : 
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=54562,localport=8000], clientUsername='null', uniqueName='null', mode= 'null'}
+String received : login:vishal:vishal
+Colon Found : 2
+Data Received at server : 
+Method to execute : login
+First Arguement : vishal
+Second Arguement : vishal
+Trying to login inside CH 1Login successfully
+Login done
+
+After login : 
+1 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=54562,localport=8000], clientUsername='vishal', uniqueName='null', mode= 'login'}
+String received at server with new socket connection : fetchUsers:vishal
+Data fetching using socket.....
+Fetched all users ... amogh kishore
+Sent online users to client's Chats page successfully...
+String received at server with new socket connection : addClient:vishal:amogh
+From Client.java : 
+Receiver : vishal from Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+New Client joined ClientHandler..Socket[addr=/127.0.0.1,port=54571,localport=8000]
+After adding client from constructor for client handler : 
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=54562,localport=8000], clientUsername='vishal', uniqueName='null', mode= 'login'}
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=54571,localport=8000], clientUsername='null', uniqueName='null', mode= 'null'}
+1 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=54562,localport=8000], clientUsername='vishal', uniqueName='null', mode= 'login'}
+2 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=54571,localport=8000], clientUsername='vishal', uniqueName='amogh_vishal', mode= 'Paired'}
+String received : sendTo:amogh:hello
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : hello
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : hello
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:hiiiii
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : hiiiii
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : hiiiii
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:jfds
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : jfds
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : jfds
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:df
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : df
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : df
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:ds
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : ds
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : ds
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:d
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : d
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : d
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:ds
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : ds
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : ds
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:d
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : d
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : d
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:d
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : d
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : d
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:d
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : d
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : d
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:d
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : d
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : d
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:f
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : f
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : f
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:g
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : g
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : g
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:g
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : g
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : g
+
+Inside send to message...: amogh_vishal
+String received : sendTo:amogh:h
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : h
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : h
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:h
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : h
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : h
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:h
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : h
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : h
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:h
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : h
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : h
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:n
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : n
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : n
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:n
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : n
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : n
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:n
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : n
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : n
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:n
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : n
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : n
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:j
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : j
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : j
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:j
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : j
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : j
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:j
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : j
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : j
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:j
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : j
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : j
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:j
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : j
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : j
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:j
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : j
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : j
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:j
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : j
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : j
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:j
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : j
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : j
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:j
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : j
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : j
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:j
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : j
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : j
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:j
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : j
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : j
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:j
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : j
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : j
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:j
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : j
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : j
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:j
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : j
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : j
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:j
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : j
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : j
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:j
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : j
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : j
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:j
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : j
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : j
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:j
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : j
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : j
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:j
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : j
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : j
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:j
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : j
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : j
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:j
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : j
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : j
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:j
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : j
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : j
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:j
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : j
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : j
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:j
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : j
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : j
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:jh
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : jh
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : jh
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:h
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : h
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : h
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:h
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : h
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : h
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:h
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : h
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : h
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:h
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : h
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : h
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:h
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : h
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : h
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:h
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : h
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : h
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:h
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : h
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : h
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:h
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : h
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : h
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:h
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : h
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : h
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:j
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : j
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : j
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:j
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : j
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : j
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:k
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : k
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : k
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:k
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : k
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : k
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:k
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : k
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : k
+
+Inside send to message...: amogh_vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=54571]
+String received : sendTo:amogh:k
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : k
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : k
+
+Inside send to message...: amogh_vishal
+String received : logout:vishal
+Colon Found : 1
+Part 1 : logout
+Part 2 : vishalInside removeClientSERVER : vishal has left the clientHandler !SERVER : vishal has left the clientHandler !

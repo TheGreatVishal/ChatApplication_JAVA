@@ -945,6 +945,20 @@ class ChattingPage extends JFrame {
             sendMessage();
         });
 
+          // Bind the Enter key to the enterBtn using lambda expression
+          InputMap inputMap = messageField.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
+          ActionMap actionMap = messageField.getActionMap();
+  
+          inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), "clickEnter");
+          actionMap.put("clickEnter", new AbstractAction() {
+              @Override
+              public void actionPerformed(ActionEvent e) {
+                sendButton.doClick();
+              }
+          });
+
+
+
         JPanel inputPanel = new JPanel();
         inputPanel.add(messageField);
         inputPanel.add(sendButton);
