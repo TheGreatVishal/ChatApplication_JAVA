@@ -1,5 +1,7 @@
 package packages;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.security.MessageDigest;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -39,7 +41,6 @@ public class Registeration {
                 }
                 hexString += hex;
             }
-
         } catch (Exception e) {
             System.err.println("Error during hashing: " + e.getMessage());
         }
@@ -123,13 +124,29 @@ public class Registeration {
             pass_of_u_name = pass_of_u_name.trim();
 
             if (pass_of_u_name.compareTo(hashedPassword) == 0) {
-                System.out.println("Login successfully");
+                // System.out.println("Login successfully");
+
+                try (FileWriter fw = new FileWriter("Log.txt", true);
+                BufferedWriter bw = new BufferedWriter(fw)) {
+
+                    bw.write("Login successfully");
+                }
                 return 1;
             } else {
-                System.out.println("Incorrect password");
+                try (FileWriter fw = new FileWriter("Log.txt", true);
+                BufferedWriter bw = new BufferedWriter(fw)) {
+
+                    bw.write("Incorrect password");
+                }
+                // System.out.println("Incorrect password");
             }
         } else {
-            System.out.println("Username doesn't Exist");
+            try (FileWriter fw = new FileWriter("Log.txt", true);
+            BufferedWriter bw = new BufferedWriter(fw)) {
+                bw.write("Username doesn't Exist");
+
+            }
+            // System.out.println("Username doesn't Exist");
         }
 
         return -1;
@@ -153,6 +170,26 @@ public class Registeration {
         returnValue = Integer.parseInt(rs.getString(1));
 
         return returnValue;
+    }
+
+    public String getOnlineUsers(String rejectName) {
+        StringBuilder onlineUsers = new StringBuilder();
+
+        try {
+            String query = "SELECT username FROM users WHERE login_status = 1 AND username != '" + rejectName + "'";
+            Statement statement = con.createStatement();
+            ResultSet resultSet = statement.executeQuery(query);
+
+            while (resultSet.next()) {
+                onlineUsers.append(resultSet.getString("username")).append(" ");
+            }
+
+            statement.close();
+        } catch (Exception e) {
+            System.out.println("Error fetching online users: " + e.getMessage());
+        }
+
+        return onlineUsers.toString().trim();
     }
 
 }

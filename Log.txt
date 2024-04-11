@@ -1,0 +1,511 @@
+
+Server Started ....
+Waiting for Clients...
+String received at server with new socket connection : 
+A new client is connected.
+New Client joined ClientHandler..Socket[addr=/127.0.0.1,port=53324,localport=8000]
+After adding client from constructor for client handler : 
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53324,localport=8000], clientUsername='null', uniqueName='null', mode= 'null'}
+String received : login:vishal:vishal
+Colon Found : 2
+Data Received at server : 
+Method to execute : login
+First Arguement : vishal
+Second Arguement : vishal
+Trying to login inside CH 1Login successfully
+Login done
+
+After login : 
+1 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53324,localport=8000], clientUsername='vishal', uniqueName='null', mode= 'login'}
+String received at server with new socket connection : 
+A new client is connected.
+New Client joined ClientHandler..Socket[addr=/127.0.0.1,port=53336,localport=8000]
+After adding client from constructor for client handler : 
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53324,localport=8000], clientUsername='vishal', uniqueName='null', mode= 'login'}
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53336,localport=8000], clientUsername='null', uniqueName='null', mode= 'null'}
+String received : login:amogh:amogh@123
+Colon Found : 2
+Data Received at server : 
+Method to execute : login
+First Arguement : amogh
+Second Arguement : amogh@123
+Trying to login inside CH 1Login successfully
+Login done
+
+After login : 
+1 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53324,localport=8000], clientUsername='vishal', uniqueName='null', mode= 'login'}
+2 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53336,localport=8000], clientUsername='amogh', uniqueName='null', mode= 'login'}
+String received at server with new socket connection : 
+A new client is connected.
+New Client joined ClientHandler..Socket[addr=/127.0.0.1,port=53346,localport=8000]
+After adding client from constructor for client handler : 
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53324,localport=8000], clientUsername='vishal', uniqueName='null', mode= 'login'}
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53336,localport=8000], clientUsername='amogh', uniqueName='null', mode= 'login'}
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53346,localport=8000], clientUsername='null', uniqueName='null', mode= 'null'}
+String received : login:bhumi:bhumi
+Colon Found : 2
+Data Received at server : 
+Method to execute : login
+First Arguement : bhumi
+Second Arguement : bhumi
+Trying to login inside CH 1Login successfully
+Login done
+
+After login : 
+1 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53324,localport=8000], clientUsername='vishal', uniqueName='null', mode= 'login'}
+2 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53336,localport=8000], clientUsername='amogh', uniqueName='null', mode= 'login'}
+3 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53346,localport=8000], clientUsername='bhumi', uniqueName='null', mode= 'login'}
+String received at server with new socket connection : fetchUsers:vishal
+Data fetching using socket.....
+Fetched all users ... amogh bhumi
+Sent online users to client's Chats page successfully...
+String received at server with new socket connection : fetchUsers:amogh
+Data fetching using socket.....
+Fetched all users ... bhumi vishal
+Sent online users to client's Chats page successfully...
+String received at server with new socket connection : fetchUsers:bhumi
+Data fetching using socket.....
+Fetched all users ... amogh vishal
+Sent online users to client's Chats page successfully...
+String received at server with new socket connection : fetchUsers:vishal
+Data fetching using socket.....
+Fetched all users ... amogh bhumi
+Sent online users to client's Chats page successfully...
+
+
+String received : addClient:vishal:amogh
+Colon Found : 2
+Data Received at server : 
+Method to execute : addClient
+First Arguement : vishal
+Second Arguement : amogh
+From Client.java : 
+Receiver : vishal from Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=53367]
+String received : addClient:amogh:vishal
+Colon Found : 2
+Data Received at server : 
+Method to execute : addClient
+First Arguement : amogh
+Second Arguement : vishal
+From Client.java : 
+Receiver : amogh from Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=53370]
+String received at server with new socket connection : sendTo:amogh:from vishal to amogh
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=53367]
+From Client.java : 
+Sender : amogh to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=53370]
+String received at server with new socket connection : sendTo:vishal:from amogh to vishal
+
+
+
+Server Started ....
+Waiting for Clients...
+String received at server with new socket connection : 
+A new client is connected.
+New Client joined ClientHandler..Socket[addr=/127.0.0.1,port=53495,localport=8000]
+After adding client from constructor for client handler : 
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53495,localport=8000], clientUsername='null', uniqueName='null', mode= 'null'}
+String received : login:vishal:vishal
+Colon Found : 2
+Data Received at server : 
+Method to execute : login
+First Arguement : vishal
+Second Arguement : vishal
+Trying to login inside CH 1Login successfully
+Login done
+
+After login : 
+1 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53495,localport=8000], clientUsername='vishal', uniqueName='null', mode= 'login'}
+String received at server with new socket connection : 
+A new client is connected.
+New Client joined ClientHandler..Socket[addr=/127.0.0.1,port=53503,localport=8000]
+After adding client from constructor for client handler : 
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53495,localport=8000], clientUsername='vishal', uniqueName='null', mode= 'login'}
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53503,localport=8000], clientUsername='null', uniqueName='null', mode= 'null'}
+String received : login:amogh:amogh@123
+Colon Found : 2
+Data Received at server : 
+Method to execute : login
+First Arguement : amogh
+Second Arguement : amogh@123
+Trying to login inside CH 1Login successfully
+Login done
+
+After login : 
+1 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53495,localport=8000], clientUsername='vishal', uniqueName='null', mode= 'login'}
+2 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53503,localport=8000], clientUsername='amogh', uniqueName='null', mode= 'login'}
+String received at server with new socket connection : 
+A new client is connected.
+New Client joined ClientHandler..Socket[addr=/127.0.0.1,port=53505,localport=8000]
+After adding client from constructor for client handler : 
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53495,localport=8000], clientUsername='vishal', uniqueName='null', mode= 'login'}
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53503,localport=8000], clientUsername='amogh', uniqueName='null', mode= 'login'}
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53505,localport=8000], clientUsername='null', uniqueName='null', mode= 'null'}
+String received : login:bhumi:bhumi
+Colon Found : 2
+Data Received at server : 
+Method to execute : login
+First Arguement : bhumi
+Second Arguement : bhumi
+Trying to login inside CH 1Login successfully
+Login done
+
+After login : 
+1 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53495,localport=8000], clientUsername='vishal', uniqueName='null', mode= 'login'}
+2 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53503,localport=8000], clientUsername='amogh', uniqueName='null', mode= 'login'}
+3 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53505,localport=8000], clientUsername='bhumi', uniqueName='null', mode= 'login'}
+String received at server with new socket connection : fetchUsers:vishal
+Data fetching using socket.....
+Fetched all users ... amogh bhumi
+Sent online users to client's Chats page successfully...
+String received at server with new socket connection : addClient:vishal:amogh
+From Client.java : 
+Receiver : vishal from Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=53514]
+New Client joined ClientHandler..Socket[addr=/127.0.0.1,port=53514,localport=8000]
+After adding client from constructor for client handler : 
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53495,localport=8000], clientUsername='vishal', uniqueName='null', mode= 'login'}
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53503,localport=8000], clientUsername='amogh', uniqueName='null', mode= 'login'}
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53505,localport=8000], clientUsername='bhumi', uniqueName='null', mode= 'login'}
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53514,localport=8000], clientUsername='null', uniqueName='null', mode= 'null'}
+
+
+
+ 
+Server Started ....
+Waiting for Clients...
+String received at server with new socket connection : 
+A new client is connected.
+New Client joined ClientHandler..Socket[addr=/127.0.0.1,port=53566,localport=8000]
+After adding client from constructor for client handler : 
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53566,localport=8000], clientUsername='null', uniqueName='null', mode= 'null'}
+String received : login:vishal:vishal
+Colon Found : 2
+Data Received at server : 
+Method to execute : login
+First Arguement : vishal
+Second Arguement : vishal
+Trying to login inside CH 1Login successfully
+Login done
+
+After login : 
+1 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53566,localport=8000], clientUsername='vishal', uniqueName='null', mode= 'login'}
+String received at server with new socket connection : 
+A new client is connected.
+New Client joined ClientHandler..Socket[addr=/127.0.0.1,port=53570,localport=8000]
+After adding client from constructor for client handler : 
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53566,localport=8000], clientUsername='vishal', uniqueName='null', mode= 'login'}
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53570,localport=8000], clientUsername='null', uniqueName='null', mode= 'null'}
+String received : login:amogh:amogh@123
+Colon Found : 2
+Data Received at server : 
+Method to execute : login
+First Arguement : amogh
+Second Arguement : amogh@123
+Trying to login inside CH 1Login successfully
+Login done
+
+After login : 
+1 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53566,localport=8000], clientUsername='vishal', uniqueName='null', mode= 'login'}
+2 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53570,localport=8000], clientUsername='amogh', uniqueName='null', mode= 'login'}
+String received at server with new socket connection : 
+A new client is connected.
+New Client joined ClientHandler..Socket[addr=/127.0.0.1,port=53579,localport=8000]
+After adding client from constructor for client handler : 
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53566,localport=8000], clientUsername='vishal', uniqueName='null', mode= 'login'}
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53570,localport=8000], clientUsername='amogh', uniqueName='null', mode= 'login'}
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53579,localport=8000], clientUsername='null', uniqueName='null', mode= 'null'}
+String received : login:bhumi:bhumi
+Colon Found : 2
+Data Received at server : 
+Method to execute : login
+First Arguement : bhumi
+Second Arguement : bhumi
+Trying to login inside CH 1Login successfully
+Login done
+
+After login : 
+1 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53566,localport=8000], clientUsername='vishal', uniqueName='null', mode= 'login'}
+2 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53570,localport=8000], clientUsername='amogh', uniqueName='null', mode= 'login'}
+3 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53579,localport=8000], clientUsername='bhumi', uniqueName='null', mode= 'login'}
+String received at server with new socket connection : fetchUsers:vishal
+Data fetching using socket.....
+Fetched all users ... amogh bhumi
+Sent online users to client's Chats page successfully...
+String received at server with new socket connection : addClient:vishal:amogh
+From Client.java : 
+Receiver : vishal from Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=53585]
+New Client joined ClientHandler..Socket[addr=/127.0.0.1,port=53585,localport=8000]
+After adding client from constructor for client handler : 
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53566,localport=8000], clientUsername='vishal', uniqueName='null', mode= 'login'}
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53570,localport=8000], clientUsername='amogh', uniqueName='null', mode= 'login'}
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53579,localport=8000], clientUsername='bhumi', uniqueName='null', mode= 'login'}
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53585,localport=8000], clientUsername='null', uniqueName='null', mode= 'null'}
+1 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53566,localport=8000], clientUsername='vishal', uniqueName='null', mode= 'login'}
+2 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53570,localport=8000], clientUsername='amogh', uniqueName='null', mode= 'login'}
+3 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53579,localport=8000], clientUsername='bhumi', uniqueName='null', mode= 'login'}
+4 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53585,localport=8000], clientUsername='vishal', uniqueName='amogh_vishal', mode= 'Paired'}
+String received at server with new socket connection : fetchUsers:amogh
+Data fetching using socket.....
+Fetched all users ... bhumi vishal
+Sent online users to client's Chats page successfully...
+String received at server with new socket connection : addClient:amogh:vishal
+From Client.java : 
+Receiver : amogh from Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=53592]
+New Client joined ClientHandler..Socket[addr=/127.0.0.1,port=53592,localport=8000]
+After adding client from constructor for client handler : 
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53566,localport=8000], clientUsername='vishal', uniqueName='null', mode= 'login'}
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53570,localport=8000], clientUsername='amogh', uniqueName='null', mode= 'login'}
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53579,localport=8000], clientUsername='bhumi', uniqueName='null', mode= 'login'}
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53585,localport=8000], clientUsername='vishal', uniqueName='amogh_vishal', mode= 'Paired'}
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53592,localport=8000], clientUsername='null', uniqueName='null', mode= 'null'}
+1 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53566,localport=8000], clientUsername='vishal', uniqueName='null', mode= 'login'}
+2 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53570,localport=8000], clientUsername='amogh', uniqueName='null', mode= 'login'}
+3 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53579,localport=8000], clientUsername='bhumi', uniqueName='null', mode= 'login'}
+4 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53585,localport=8000], clientUsername='vishal', uniqueName='amogh_vishal', mode= 'Paired'}
+5 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53592,localport=8000], clientUsername='amogh', uniqueName='amogh_vishal', mode= 'Paired'}
+String received : sendTo:amogh:from vishal to amogh
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=53585]
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : from vishal to amogh
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : from vishal to amogh
+
+Inside send to message...: amogh_vishal
+Sending to : amogh
+Msg : from vishal to amogh
+From Client.java : 
+Sender : amogh to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=53592]
+String received : sendTo:vishal:from amogh to vishal
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : vishal
+Second Arguement : from amogh to vishal
+Msg reached to server...
+Msg from clientHandler : send to -> vishal
+msg : from amogh to vishal
+
+Inside send to message...: amogh_vishal
+Sending to : vishal
+Msg : from amogh to vishal
+String received at server with new socket connection : fetchUsers:bhumi
+Data fetching using socket.....
+Fetched all users ... amogh vishal
+Sent online users to client's Chats page successfully...
+String received at server with new socket connection : addClient:vishal:bhumi
+From Client.java : 
+Receiver : vishal from Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=53616]
+New Client joined ClientHandler..Socket[addr=/127.0.0.1,port=53616,localport=8000]
+After adding client from constructor for client handler : 
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53566,localport=8000], clientUsername='vishal', uniqueName='null', mode= 'login'}
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53570,localport=8000], clientUsername='amogh', uniqueName='null', mode= 'login'}
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53579,localport=8000], clientUsername='bhumi', uniqueName='null', mode= 'login'}
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53585,localport=8000], clientUsername='vishal', uniqueName='amogh_vishal', mode= 'Paired'}
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53592,localport=8000], clientUsername='amogh', uniqueName='amogh_vishal', mode= 'Paired'}
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53616,localport=8000], clientUsername='null', uniqueName='null', mode= 'null'}
+1 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53566,localport=8000], clientUsername='vishal', uniqueName='null', mode= 'login'}
+2 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53570,localport=8000], clientUsername='amogh', uniqueName='null', mode= 'login'}
+3 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53579,localport=8000], clientUsername='bhumi', uniqueName='null', mode= 'login'}
+4 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53585,localport=8000], clientUsername='vishal', uniqueName='amogh_vishal', mode= 'Paired'}
+5 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53592,localport=8000], clientUsername='amogh', uniqueName='amogh_vishal', mode= 'Paired'}
+6 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53616,localport=8000], clientUsername='vishal', uniqueName='bhumi_vishal', mode= 'Paired'}
+String received at server with new socket connection : addClient:bhumi:vishal
+From Client.java : 
+Receiver : bhumi from Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=53622]
+New Client joined ClientHandler..Socket[addr=/127.0.0.1,port=53622,localport=8000]
+After adding client from constructor for client handler : 
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53566,localport=8000], clientUsername='vishal', uniqueName='null', mode= 'login'}
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53570,localport=8000], clientUsername='amogh', uniqueName='null', mode= 'login'}
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53579,localport=8000], clientUsername='bhumi', uniqueName='null', mode= 'login'}
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53585,localport=8000], clientUsername='vishal', uniqueName='amogh_vishal', mode= 'Paired'}
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53592,localport=8000], clientUsername='amogh', uniqueName='amogh_vishal', mode= 'Paired'}
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53616,localport=8000], clientUsername='vishal', uniqueName='bhumi_vishal', mode= 'Paired'}
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53622,localport=8000], clientUsername='null', uniqueName='null', mode= 'null'}
+1 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53566,localport=8000], clientUsername='vishal', uniqueName='null', mode= 'login'}
+2 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53570,localport=8000], clientUsername='amogh', uniqueName='null', mode= 'login'}
+3 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53579,localport=8000], clientUsername='bhumi', uniqueName='null', mode= 'login'}
+4 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53585,localport=8000], clientUsername='vishal', uniqueName='amogh_vishal', mode= 'Paired'}
+5 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53592,localport=8000], clientUsername='amogh', uniqueName='amogh_vishal', mode= 'Paired'}
+6 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53616,localport=8000], clientUsername='vishal', uniqueName='bhumi_vishal', mode= 'Paired'}
+7 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53622,localport=8000], clientUsername='bhumi', uniqueName='bhumi_vishal', mode= 'Paired'}
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=53616]
+String received : sendTo:bhumi:from vishal to bhumi
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : bhumi
+Second Arguement : from vishal to bhumi
+Msg reached to server...
+Msg from clientHandler : send to -> bhumi
+msg : from vishal to bhumi
+
+Inside send to message...: bhumi_vishal
+Sending to : bhumi
+Msg : from vishal to bhumi
+From Client.java : 
+Sender : bhumi to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=53622]
+String received : sendTo:vishal:from bhumi to vishal
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : vishal
+Second Arguement : from bhumi to vishal
+Msg reached to server...
+Msg from clientHandler : send to -> vishal
+msg : from bhumi to vishal
+
+Inside send to message...: bhumi_vishal
+Sending to : vishal
+Msg : from bhumi to vishal
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=53616]
+String received : sendTo:bhumi:second msg
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : bhumi
+Second Arguement : second msg
+Msg reached to server...
+Msg from clientHandler : send to -> bhumi
+msg : second msg
+
+Inside send to message...: bhumi_vishal
+Sending to : bhumi
+Msg : second msg
+From Client.java : 
+Sender : bhumi to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=53622]
+String received : sendTo:vishal:fsf
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : vishal
+Second Arguement : fsf
+Msg reached to server...
+Msg from clientHandler : send to -> vishal
+msg : fsf
+
+Inside send to message...: bhumi_vishal
+Sending to : vishal
+Msg : fsf
+String received : sendTo:vishal:ggdsa
+From Client.java : 
+Sender : amogh to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=53592]
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : vishal
+Second Arguement : ggdsa
+Msg reached to server...
+Msg from clientHandler : send to -> vishal
+msg : ggdsa
+
+Inside send to message...: amogh_vishal
+Sending to : vishal
+Msg : ggdsa
+From Client.java : 
+Sender : vishal to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=53585]
+String received : sendTo:amogh:ga
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : ga
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : ga
+
+Inside send to message...: amogh_vishal
+Sending to : amogh
+Msg : ga
+String received at server with new socket connection : addClient:amogh:bhumi
+From Client.java : 
+Receiver : amogh from Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=53654]
+New Client joined ClientHandler..Socket[addr=/127.0.0.1,port=53654,localport=8000]
+After adding client from constructor for client handler : 
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53566,localport=8000], clientUsername='vishal', uniqueName='null', mode= 'login'}
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53570,localport=8000], clientUsername='amogh', uniqueName='null', mode= 'login'}
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53579,localport=8000], clientUsername='bhumi', uniqueName='null', mode= 'login'}
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53585,localport=8000], clientUsername='vishal', uniqueName='amogh_vishal', mode= 'Paired'}
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53592,localport=8000], clientUsername='amogh', uniqueName='amogh_vishal', mode= 'Paired'}
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53616,localport=8000], clientUsername='vishal', uniqueName='bhumi_vishal', mode= 'Paired'}
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53622,localport=8000], clientUsername='bhumi', uniqueName='bhumi_vishal', mode= 'Paired'}
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53654,localport=8000], clientUsername='null', uniqueName='null', mode= 'null'}
+1 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53566,localport=8000], clientUsername='vishal', uniqueName='null', mode= 'login'}
+2 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53570,localport=8000], clientUsername='amogh', uniqueName='null', mode= 'login'}
+3 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53579,localport=8000], clientUsername='bhumi', uniqueName='null', mode= 'login'}
+4 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53585,localport=8000], clientUsername='vishal', uniqueName='amogh_vishal', mode= 'Paired'}
+5 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53592,localport=8000], clientUsername='amogh', uniqueName='amogh_vishal', mode= 'Paired'}
+6 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53616,localport=8000], clientUsername='vishal', uniqueName='bhumi_vishal', mode= 'Paired'}
+7 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53622,localport=8000], clientUsername='bhumi', uniqueName='bhumi_vishal', mode= 'Paired'}
+8 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53654,localport=8000], clientUsername='amogh', uniqueName='amogh_bhumi', mode= 'Paired'}
+String received at server with new socket connection : addClient:bhumi:amogh
+From Client.java : 
+Receiver : bhumi from Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=53660]
+New Client joined ClientHandler..Socket[addr=/127.0.0.1,port=53660,localport=8000]
+After adding client from constructor for client handler : 
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53566,localport=8000], clientUsername='vishal', uniqueName='null', mode= 'login'}
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53570,localport=8000], clientUsername='amogh', uniqueName='null', mode= 'login'}
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53579,localport=8000], clientUsername='bhumi', uniqueName='null', mode= 'login'}
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53585,localport=8000], clientUsername='vishal', uniqueName='amogh_vishal', mode= 'Paired'}
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53592,localport=8000], clientUsername='amogh', uniqueName='amogh_vishal', mode= 'Paired'}
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53616,localport=8000], clientUsername='vishal', uniqueName='bhumi_vishal', mode= 'Paired'}
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53622,localport=8000], clientUsername='bhumi', uniqueName='bhumi_vishal', mode= 'Paired'}
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53654,localport=8000], clientUsername='amogh', uniqueName='amogh_bhumi', mode= 'Paired'}
+ ClientHandler{socket=Socket[addr=/127.0.0.1,port=53660,localport=8000], clientUsername='null', uniqueName='null', mode= 'null'}
+1 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53566,localport=8000], clientUsername='vishal', uniqueName='null', mode= 'login'}
+2 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53570,localport=8000], clientUsername='amogh', uniqueName='null', mode= 'login'}
+3 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53579,localport=8000], clientUsername='bhumi', uniqueName='null', mode= 'login'}
+4 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53585,localport=8000], clientUsername='vishal', uniqueName='amogh_vishal', mode= 'Paired'}
+5 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53592,localport=8000], clientUsername='amogh', uniqueName='amogh_vishal', mode= 'Paired'}
+6 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53616,localport=8000], clientUsername='vishal', uniqueName='bhumi_vishal', mode= 'Paired'}
+7 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53622,localport=8000], clientUsername='bhumi', uniqueName='bhumi_vishal', mode= 'Paired'}
+8 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53654,localport=8000], clientUsername='amogh', uniqueName='amogh_bhumi', mode= 'Paired'}
+9 : ClientHandler{socket=Socket[addr=/127.0.0.1,port=53660,localport=8000], clientUsername='bhumi', uniqueName='amogh_bhumi', mode= 'Paired'}
+From Client.java : 
+Sender : amogh to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=53654]
+String received : sendTo:bhumi:from amogh to bhumi
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : bhumi
+Second Arguement : from amogh to bhumi
+Msg reached to server...
+Msg from clientHandler : send to -> bhumi
+msg : from amogh to bhumi
+
+Inside send to message...: amogh_bhumi
+Sending to : bhumi
+Msg : from amogh to bhumi
+From Client.java : 
+Sender : bhumi to Socket : Socket[addr=localhost/127.0.0.1,port=8000,localport=53660]
+String received : sendTo:amogh:from bhumi to amogh
+Colon Found : 2
+Data Received at server : 
+Method to execute : sendTo
+First Arguement : amogh
+Second Arguement : from bhumi to amogh
+Msg reached to server...
+Msg from clientHandler : send to -> amogh
+msg : from bhumi to amogh
+
+Inside send to message...: amogh_bhumi
+Sending to : amogh
+Msg : from bhumi to amogh
+String received : logout:vishal
+Colon Found : 1
+Part 1 : logout
+Part 2 : vishalInside removeClientSERVER : vishal has left the clientHandler !SERVER : vishal has left the clientHandler !SERVER : vishal has left the clientHandler !
+String received : logout:amogh
+Colon Found : 1
+Part 1 : logout
+Part 2 : amoghInside removeClientSERVER : amogh has left the clientHandler !SERVER : amogh has left the clientHandler !SERVER : amogh has left the clientHandler !
+String received : logout:bhumi
+Colon Found : 1
+Part 1 : logout
+Part 2 : bhumiInside removeClientSERVER : bhumi has left the clientHandler !SERVER : bhumi has left the clientHandler !SERVER : bhumi has left the clientHandler !

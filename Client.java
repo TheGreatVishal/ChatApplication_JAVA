@@ -1,12 +1,18 @@
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.net.SocketTimeoutException;
 import java.util.Scanner;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.InputStreamReader;
-
 import java.awt.*;
 import javax.swing.*;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
 
 class Send implements Runnable {
     Scanner sc;
@@ -90,6 +96,7 @@ class ReceiveOnGui implements Runnable {
                 while ((str = br.readLine()) != null) {
                     chatArea.append(str + "\n");
                 }
+
             } catch (Exception e) {
                 System.err.println("Error while receiving message from server: " + e.getMessage());
                 e.printStackTrace(); // Print stack trace for debugging
@@ -407,14 +414,12 @@ public class Client {
 }
 
 // GUI SECTION
-
 class IP extends JFrame {
     JLabel ipAddress;
     JTextField inputIP;
     JButton enterBtn;
 
     String ip = null;
-    Socket s;
 
     public IP() throws Exception {
 
@@ -427,12 +432,26 @@ class IP extends JFrame {
         add(enterBtn);
 
         enterBtn.addActionListener(ae -> {
-            this.ip = inputIP.getText();
             try {
-                new INDEX(this.ip);
-                dispose();
-
+                if (inputIP.getText().length() >= 7) {
+                    this.ip = inputIP.getText();
+                    new INDEX(this.ip);
+                    dispose();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Invalid Input", "Error", JOptionPane.ERROR_MESSAGE);
+                }
             } catch (Exception e) {
+            }
+        });
+        // Bind the Enter key to the enterBtn using lambda expression
+        InputMap inputMap = inputIP.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
+        ActionMap actionMap = inputIP.getActionMap();
+
+        inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), "clickEnter");
+        actionMap.put("clickEnter", new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                enterBtn.doClick();
             }
         });
 
@@ -466,6 +485,8 @@ class INDEX extends JFrame {
         signUpBtn.addActionListener(ae -> {
             try {
                 s = new Socket(ip, 8000);
+                PrintWriter out = new PrintWriter(s.getOutputStream(), true); // autoFlush: true
+                out.println("");
                 new SignUpPage(this.s, ip);
                 this.dispose();
             } catch (Exception e) {
@@ -476,7 +497,11 @@ class INDEX extends JFrame {
         loginBtn.addActionListener(ae -> {
             try {
                 s = new Socket(ip, 8000);
-                new LoginPage(this.s);
+
+                PrintWriter out = new PrintWriter(s.getOutputStream(), true); // autoFlush: true
+                out.println("");
+
+                new LoginPage(this.s, this.ip);
                 this.dispose();
             } catch (Exception e) {
             }
@@ -618,12 +643,13 @@ class LoginPage extends JFrame {
     Socket s;
     String login_u_name;
 
-    String login_pass;
+    String login_pass, ip;
     int loginStatus = 0;
 
-    public LoginPage(Socket s) throws Exception {
+    public LoginPage(Socket s, String ip) throws Exception {
 
         this.s = s;
+        this.ip = ip;
 
         header = new JLabel("Login to Chat-Application");
         username = new JTextField(40);
@@ -648,6 +674,30 @@ class LoginPage extends JFrame {
         this.add(invalidPassword);
         this.add(successfullLogin);
 
+        // Bind the Enter key to the login button using lambda expression
+        InputMap inputMap = username.getInputMap(JComponent.WHEN_FOCUSED);
+        ActionMap actionMap = username.getActionMap();
+
+        inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), "clickEnter");
+        actionMap.put("clickEnter", new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                pass.requestFocusInWindow();
+            }
+        });
+
+        // Bind the Enter key to the login button using lambda expression
+        inputMap = pass.getInputMap(JComponent.WHEN_FOCUSED);
+        actionMap = pass.getActionMap();
+
+        inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), "login");
+        actionMap.put("login", new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                loginButton.doClick();
+            }
+        });
+
         // on clicking button sign-up
         loginButton.addActionListener(ae -> {
             invalidUsername.setText("");
@@ -669,38 +719,26 @@ class LoginPage extends JFrame {
                 if (isLoginComplete == 1) {
 
                     // login successful
-                    System.out.println("Login Successfully");
+                    // System.out.println("Login Successfully");
+                    JOptionPane.showMessageDialog(null, "Login Successfully", "Success",
+                            JOptionPane.INFORMATION_MESSAGE);
                     loginStatus = 1;
                 } else {
                     // login failed
-                    successfullLogin.setText("Invalid Credentials...");
+                    // successfullLogin.setText("Invalid Credentials...");
+                    JOptionPane.showMessageDialog(null, "Invalid Credentials...", "Error", JOptionPane.ERROR_MESSAGE);
                 }
 
                 if (loginStatus == 1) {
-                    // will logout user on abnormal termination of program (ctrl + c)
-                    successfullLogin.setText("Login Successfully");
-
-                    final String userLogout = login_u_name;
-                    Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-                        try {
-                            final PrintWriter out2 = new PrintWriter(s.getOutputStream(), true); // autoFlush : true
-                            out2.println("logout:" + userLogout); // sending to server
-                        } catch (Exception e) {
-                            System.err.println("Error setting login status: " + e.getMessage());
-                        }
-                    }));
-
+                    // successfullLogin.setText("Login Successfully");
                     try {
-                        new FirstPage(this.s, login_u_name);
+                        new FirstPage(this.s, login_u_name, ip);
+                        this.dispose();
                     } catch (Exception e) {
                     }
-                    this.dispose();
-
                 }
-
             } catch (Exception e) {
             }
-
         });
 
         this.setVisible(true);
@@ -712,102 +750,169 @@ class LoginPage extends JFrame {
 class FirstPage extends JFrame {
 
     Socket s;
-    String selfUsername; // person who is logged in
+    String loggedInPerson, ip; // person who is logged in
 
-    JTextField targetUsername; // whom we want to chat with
-    JLabel header, usernameLabel, notification;
-    JButton chatBtn;
-
-    int doesUserExist;
-    int isUserOnline;
+    JButton chatsBtn, logOutBtn;
+    JPanel dataPanel;
+    GridBagConstraints gbc;
 
     PrintWriter out;
     BufferedReader br;
 
-    FirstPage(Socket s, String senderName) throws Exception {
+    public FirstPage(Socket s, String loggedInPerson, String ip) throws Exception {
         this.s = s;
-        this.selfUsername = senderName;
+        this.ip = ip;
+        this.loggedInPerson = loggedInPerson;
 
-        usernameLabel = new JLabel("Chat with (Username) : ");
-        notification = new JLabel("");
-        targetUsername = new JTextField(40);
-        chatBtn = new JButton("Start Chat");
+        // Set layout for the frame
+        setLayout(new BorderLayout());
 
-        this.add(usernameLabel);
-        this.add(targetUsername);
-        this.add(chatBtn);
-        this.add(notification);
+        JPanel p1 = new JPanel(new GridLayout(1, 3));
+        chatsBtn = new JButton("Chats");
+        logOutBtn = new JButton("Logout");
 
-        // on clicking chatBtn button
-        chatBtn.addActionListener(ae -> {
-            String targetusername = targetUsername.getText();
-            notification.setText("");
+        p1.add(chatsBtn);
+        p1.add(logOutBtn);
 
-            if (targetusername.equals(selfUsername)) {
-                notification.setText("Can't talk to yourself ....");
-                return;
-            }
+        // Add the panel with buttons at the top
+        add(p1, BorderLayout.NORTH);
 
+        // Create the data panel
+        dataPanel = new JPanel();
+        dataPanel.setLayout(new GridBagLayout()); // Vertical layout
+        dataPanel.setBackground(Color.LIGHT_GRAY); // Set background color
+
+        gbc = new GridBagConstraints();
+
+        // Add the data panel below the buttons panel
+        add(dataPanel, BorderLayout.CENTER);
+
+        // Register button listeners
+        logOutBtn.addActionListener(ae -> {
             try {
-
-                out = new PrintWriter(s.getOutputStream(), true); // autoFlush : true
-                out.println("isUserNameTaken:" + targetusername); // sending to server
-
-                br = new BufferedReader(new InputStreamReader(s.getInputStream()));
-
-                doesUserExist = Integer.parseInt(br.readLine());
+                final PrintWriter out2 = new PrintWriter(s.getOutputStream(), true); // autoFlush : true
+                out2.println("logout:" + loggedInPerson); // sending to server
+                JOptionPane.showMessageDialog(dataPanel, "Logout Successfully", "Success",
+                        JOptionPane.INFORMATION_MESSAGE);
+                new INDEX(ip);
+                this.dispose();
 
             } catch (Exception e) {
-            }
-
-            if (doesUserExist == 0) {
-                notification.setText("User Does not Exist !!");
-                return;
-
-            } else {
-
-                try {
-                    out = new PrintWriter(s.getOutputStream(), true); // autoFlush : true
-                    out.println("isUserOnline:" + targetusername); // sending to server
-
-                    br = new BufferedReader(new InputStreamReader(s.getInputStream()));
-
-                    isUserOnline = Integer.parseInt(br.readLine());
-
-                } catch (Exception e) {
-                }
-
-                if (isUserOnline == 1) {
-                    // redirect to user for chatting
-                    // System.out.println("Starting chat with : " + targetusername);
-                    notification.setText("Starting Chat with " + targetusername);
-
-                    try {
-                        out = new PrintWriter(s.getOutputStream(), true); // autoFlush : true
-                        out.println("createUniqueName:" + selfUsername + ":" + targetusername);
-                    } catch (Exception e) {
-                    }
-
-                    try {
-                        new ChattingPage(this.s, selfUsername, targetusername);
-                    } catch (Exception e) {
-                    }
-                    this.dispose();
-
-                } else {
-                    notification.setText(targetusername + " is offline .");
-                    return;
-                }
-
+                e.printStackTrace();
             }
 
         });
 
-        this.setTitle("Chat Application");
-        this.setLayout(new GridLayout(12, 1));
-        this.setVisible(true);
-        this.setSize(400, 600);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        chatsBtn.addActionListener(ae -> {
+            try {
+                handleChatsButtonClick();
+            } catch (Exception e) {
+                // TODO: handle exception
+            }
+        });
+
+        setTitle("Chat Application");
+        setSize(400, 600);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setVisible(true);
+    }
+
+    private void handleChatsButtonClick() throws Exception {
+
+        dataPanel.removeAll();
+        String[] receivedUsers = null;
+
+        System.out.println("\nTrying to refresh Users available....");
+
+        Socket dataSocket = new Socket(this.ip, 8000);
+
+        out = new PrintWriter(dataSocket.getOutputStream(), true); // autoFlush: true
+        out.println("fetchUsers:"+this.loggedInPerson); // sending to server
+
+        System.out.println("\nReceived Available users successfully....");
+        String allUsers = null;
+        dataSocket.setSoTimeout(2000); // Set a timeout of 5 seconds (adjust as needed)
+
+        try {
+            try {
+                br = new BufferedReader(new InputStreamReader(dataSocket.getInputStream()));
+                System.out.println("\nReaching here...");
+                allUsers = br.readLine();
+                dataSocket.close();
+                System.out.println("Received all online users by chats btn (string) : " + allUsers);
+
+                receivedUsers = allUsers.split(" ");
+                System.out.println("\nLength of list received : " + receivedUsers.length);
+                for (String users : receivedUsers) {
+                    System.out.println("\n" + users);
+                }
+
+                JLabel userNames[] = new JLabel[receivedUsers.length];
+                JButton connectBtn[] = new JButton[receivedUsers.length];
+                if (receivedUsers.length != 0) {
+                    int i = 0;
+                    // Process the received data
+                    for (String user : receivedUsers) {
+
+                        userNames[i] = new JLabel(user);
+                        connectBtn[i] = new JButton("Connect");
+
+                        gbc.insets = new Insets(10, 0, 0, 0);
+                        gbc.gridx = 0;
+                        gbc.gridy = i;
+                        dataPanel.add(userNames[i], gbc);
+
+                        gbc.insets = new Insets(10, 10, 0, 0);
+                        gbc.gridx = 1;
+                        gbc.gridy = i;
+                        dataPanel.add(connectBtn[i], gbc);
+
+                        i++;
+                    }
+
+                    for (int j = 0; j < receivedUsers.length; j++) {
+                        final int effectiveIndex = j;
+                        connectBtn[j].addActionListener(ae -> {
+                            try {
+                                // creating new socket
+                                Socket clienSocket = new Socket(ip, 8000);
+
+                                out = new PrintWriter(clienSocket.getOutputStream(), true);
+                             
+                                out.println("addClient:" + this.loggedInPerson + ":" + userNames[effectiveIndex].getText());
+
+                                System.out.println("\nAdded in clientHandler successfully...." + "(" +
+                                        loggedInPerson + ")");
+
+                                Thread chatThread = new Thread(() -> {
+                                    new ChattingPage(clienSocket, loggedInPerson, userNames[effectiveIndex].getText());
+                                });
+                                chatThread.start();
+                            } catch (Exception e) {
+                                // TODO: handle exception
+                            }
+                        });
+                    }
+                    revalidate();
+                    repaint();
+
+                    System.out.println(receivedUsers.length + " members are online right now.");
+                } else {
+                    System.out.println("Received data is not in the expected format.");
+                }
+
+            } catch (SocketTimeoutException ste) {
+                System.err.println("Timeout while reading input stream: " + ste.getMessage());
+                // Handle the timeout scenario
+            } catch (IOException e) {
+                System.err.println("Error reading input stream: " + e.getMessage());
+                // Handle other IO exceptions
+            }
+        } catch (Exception e) {
+            // e.printStackTrace();
+        } finally {
+            dataSocket.close();
+        }
     }
 }
 
@@ -860,6 +965,7 @@ class ChattingPage extends JFrame {
         this.setTitle("Chat Application");
         this.setSize(400, 600);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setLocationRelativeTo(null);
         this.setVisible(true);
     }
 
@@ -874,6 +980,12 @@ class ChattingPage extends JFrame {
             try {
                 PrintWriter out = new PrintWriter(s.getOutputStream(), true);
                 out.println("sendTo:" + targetUsername + ":" + message); // Writing data to the server
+
+                try (FileWriter fw = new FileWriter("Log.txt", true);
+                        BufferedWriter bw = new BufferedWriter(fw)) {
+                    bw.write("\nFrom Client.java : \nSender : " + selfUsername + " to Socket : " + s);
+                }
+
             } catch (Exception e) {
                 System.out.println("(GUI) Error generated while sending msg from client to server : " + e);
             }
@@ -882,6 +994,13 @@ class ChattingPage extends JFrame {
     }
 
     public void receiveMessages(Socket s, JTextArea chatArea) {
+
+        try (FileWriter fw = new FileWriter("Log.txt", true);
+                BufferedWriter bw = new BufferedWriter(fw)) {
+            bw.write("\nFrom Client.java : \nReceiver : " + selfUsername + " from Socket : " + s);
+        } catch (Exception e) {
+
+        }
         ReceiveOnGui receiveThread = new ReceiveOnGui(s, chatArea);
         Thread receiveThread1 = new Thread(receiveThread);
         receiveThread1.start();
